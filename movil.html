@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <!-- Sin zoom con doble toque ni pellizco: los botones se pulsan muy seguido -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#07070f">
+  <title>Grietas · Móvil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/movil.css">
+  <!-- Versión móvil de prueba: sin saltos a puntos de la historia (ver main.js) -->
+  <script>window.G = window.G || {}; G.MOBILE = true;</script>
+</head>
+<body>
+  <div id="app">
+    <!-- Barra superior: menú, mapa, dificultad, música y pantalla completa -->
+    <div id="topbar">
+      <div class="tb-group">
+        <button class="tb" data-action="quests" type="button">MENÚ</button>
+        <button class="tb" id="btn-mapa" type="button">MAPA</button>
+      </div>
+      <span class="tb-space"></span>
+      <div class="tb-group">
+        <button class="tb" id="difficulty" type="button">Medio</button>
+        <button class="tb icon" data-tap="music" type="button" aria-label="Música sí/no">♪</button>
+        <button class="tb icon" id="btn-full" type="button" aria-label="Pantalla completa">⛶</button>
+      </div>
+    </div>
+
+    <div id="screen"><canvas id="game" aria-label="Pantalla de juego"></canvas></div>
+
+    <!-- Mando: cruceta a la izquierda, A y B a la derecha -->
+    <div id="pad">
+      <div id="dpad" aria-label="Cruceta">
+        <span class="d up">▲</span><span class="d left">◀</span><span class="d right">▶</span><span class="d down">▼</span>
+        <span class="d-center"></span>
+      </div>
+      <div id="ab">
+        <button class="ab b" data-action="cancel" type="button">B<small>volver<br>correr</small></button>
+        <button class="ab a" data-action="confirm" type="button">A<small>hablar<br>aceptar</small></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mapa de la historia: se abre y se cierra con el botón MAPA -->
+  <div id="mapa" hidden>
+    <div class="mapa-box">
+      <div class="mapa-head">
+        <div>
+          <div id="mapa-cap" class="mapa-cap"></div>
+          <div id="mapa-lugar" class="mapa-lugar"></div>
+        </div>
+        <button id="mapa-cerrar" type="button" aria-label="Cerrar mapa">✕</button>
+      </div>
+      <canvas id="mapa-canvas" width="640" height="360"></canvas>
+      <div class="mapa-info">
+        <div id="mapa-obj" class="mapa-obj"></div>
+        <ol id="mapa-pasos" class="mapa-pasos"></ol>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/core/config.js"></script>
+  <script src="js/core/util.js"></script>
+  <script src="js/core/difficulty.js"></script>
+  <script src="js/core/input.js"></script>
+  <script src="js/core/music.js"></script>
+
+  <script src="js/data/sprites.js"></script>
+  <script src="js/data/statuses.js"></script>
+  <script src="js/data/skills.js"></script>
+  <script src="js/data/enemies.js"></script>
+  <script src="js/data/characters.js"></script>
+
+  <script src="js/world/factions.js"></script>
+  <script src="js/world/party.js"></script>
+  <script src="js/world/recruitment.js"></script>
+  <script src="js/world/gamestate.js"></script>
+  <script src="js/world/quests.js"></script>
+  <script src="js/world/village.js"></script>
+  <script src="js/data/bestiario.js"></script>
+  <script src="js/data/viajeros.js"></script>
+  <script src="js/data/criaturas-cantoalto.js"></script>
+  <script src="js/data/viajeros-cantoalto.js"></script>
+  <script src="js/world/village-events.js"></script>
+  <script src="js/world/maps-brezal.js"></script>
+  <script src="js/world/maps-cantoalto.js"></script>
+  <script src="js/data/valtessa-data.js"></script>
+  <script src="js/world/maps-valtessa.js"></script>
+
+  <script src="js/battle/stats.js"></script>
+  <script src="js/battle/combatant.js"></script>
+  <script src="js/battle/rift.js"></script>
+  <script src="js/battle/effects.js"></script>
+  <script src="js/battle/ui.js"></script>
+  <script src="js/battle/battle.js"></script>
+  <script src="js/minigame/runner.js"></script>
+
+  <script src="js/story/avatar.js"></script>
+  <script src="js/story/cutscene.js"></script>
+  <script src="js/story/scripts/mercado.js"></script>
+  <script src="js/story/scripts/academia.js"></script>
+
+  <script src="js/render/renderer.js"></script>
+  <script src="js/render/scene-renderer.js"></script>
+  <script src="js/render/village-renderer.js"></script>
+  <script src="js/render/runner-renderer.js"></script>
+  <script src="js/render/title-screen.js"></script>
+  <script src="js/render/valtessa-renderer.js"></script>
+  <script src="js/main.js"></script>
+
+  <script src="js/mobile/story-map.js"></script>
+  <script src="js/mobile/touch.js"></script>
+</body>
+</html>
